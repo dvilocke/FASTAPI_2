@@ -217,5 +217,45 @@ el nombre que le damos a las funciones, pero eso se puede cambiar con esto
 
 @app.post(path='/person/new/', response_model=PersonOut, status_code=status.HTTP_201_CREATED, tags = ['Persons'], summary = 'Create Person in the app')
 
+------- Deprecar una path operation
 
+Mientras nuestra API este viva, mientras nuestra aplicación este funcionando mas de una vez vamos a mejorar
+la misma, a medida que nosotros mejoramos nuestra Api, la hacemos mejor, le agregamos funcionalidades hay algunas
+path operations que nosotros vamos a mantener pero hay otras que vamos a dejar sin efecto, este proceso de dejar
+sin efecto una pieza de codigo , se le dice en jerga popular de los programadores, deprecar, deprecar una pieza de
+codigo sucede por varias cuestiones
+
+1.Se encuentra un mejor método mas eficiente para resolver un problema que nosotros ya tenemos. Lo que
+hacemos no es eliminar dicho método si no la dejamos sin efecto.
+Para aprovechar el código posteriormente si lo requerimos nuevamente.
+
+explicacion:
+tenemos una path operation con un metodo  que resuelve un problema, pero resulta que en el camino, es decir
+en la evolución de la empresa y de nuestra aplicación, encontramos otro metodo que es mejor, que resuelve mejor
+el problema , en este caso en vez de eliminar la path operation, la deprecamos, es decir la dejamos sin efecto
+
+Porque no la eliminamos?
+porque puede que la necesitemos en otro momento, quien sabe si este nuevo metodo al final no funciona
+y tenemos que volver al pasado, en ese caso, aprovechamos el codigo de nuevo
+
+
+
+2.Una funcionalidad diferente de nuestro código a la que ya tenemos definidos.
+
+explicacion:
+
+vamos hacer exactamente el mismo proceso pero de una manera distinta, vamos a encontrar
+un camino mas distinto para hacer el proceso, en este caso deprecamos nuestro primer codigo
+
+
+3.Cuando se esta realizando una refactorización profunda del código, debido a que no tiene las mejores practicas,
+se define deprecar las path operation que se tienen por otras nuevas y se reemplazan.
+
+no se eliminan
+
+Nota: Siempre es
+mejor mantener el código que modificarlo desde cero salvo rara excepciones
+
+no quiere decir que el codigo que hizo la otra persona esta mal, vale mas la pena pararse y leer el codigo, entenderlo
+y mantenerlo que cambiarlo desde cero
 '''
