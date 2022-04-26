@@ -68,4 +68,18 @@ ya que nos sirven para evitar duplicidad, pero en este caso en particular no, lo
                                esta mal
             500 -> la mas peligrosa, internal server error , esto sucede cuando tenemos un error en el codigo
                     por lo tanto tenemos que ir a la aplicacion a corregirlo
+
+4 clase Formularios
+    cuando estes construyendo tu aplicación te vas a dar cuenta que hay casos en los cuales los datos
+    que vas a transmitir a traves desde tu APi no lo vas hacer desde un parametro, por ejemplo un query parameter
+    o path parameter o ni siquiera en forma de request body , hay veces en la  que tu aplicacion que ya sabe como esta
+    compuesta porque lo aprendiste en el curso de introducción al desarrollo backend que tiene un frond y un
+    backend, hay veces en la que el usuario que esta viendo su aplicación va estar en el frontend, va a estar en
+    la interfaz , por ejemplo en este frontend, en esa interfaz , el usuario va a tener un formulario
+
+    la forma de entrada de datos de un formulario es una entrada de datos avanzada prodriamos decirle y es diferente
+    a como se entra datos a traves de path parameters, query parameters y request body
+
+    --como hacer para que tu API pueda resivir datos del frontend y particularmente de los formularios--
+
 '''
