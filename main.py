@@ -1,11 +1,14 @@
-
+#Python
 from typing import Optional
 from enum import Enum
 
+#Pydantic
 from pydantic import BaseModel, Field
 from pydantic import EmailStr
 
-from fastapi import FastAPI, Body, Form, Header, Cookie, UploadFile, File
+#FastAPI
+from fastapi import HTTPException
+from fastapi import FastAPI, Body, Form, Header, Cookie, UploadFile, File, Path
 from fastapi import  status
 
 
@@ -117,6 +120,33 @@ def post_image(
         'Format': image.content_type,
         'Size(kb)' : round(len(image.file.read()) / 1024, ndigits=2)
     }
+
+# HTTTPException
+persons = [
+    1,2,3,4,5
+]
+@app.get(
+    path = '/person/detail/{person_id}'
+)
+def show_person(
+        person_id : int =  Path(
+            ...,
+            gt=0,
+            example=123
+        )
+):
+    if person_id not in persons:
+        #recuerda que ponemos raise porque vamos a generar una exception
+        #devemos devolver siempre un status code
+        #los detalles tambien
+        raise HTTPException(
+            status_code = status.HTTP_404_NOT_FOUND,
+            detail = 'This person Doesn exist!'
+        )
+    else:
+        return {
+            person_id : "Is Exists!"
+        }
 
 
 

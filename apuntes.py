@@ -175,4 +175,17 @@ ya que nos sirven para evitar duplicidad, pero en este caso en particular no, lo
     Nota: si yo divido la cantidad en bytes de un archivo en 1024 eso me va a dar la cantidad
     en kb
 
+Video 10 -> HTTPException
+    Que pasa si un usuario de tu aplicación trata de acceder a un dato de tu aplicacion que no existe
+    o que tal si un usuario de tu aplicacion trata de acceder a un dato de tu aplicacion que no tiene
+    permiso, para poder solucionar este tipo de situaciones FastApi nos proporciona
+    HTTPException
+
+    HTTPException nos va a servir para casos que por ejemplo tenemos un error, generalemente van hacer para
+    errores de clientes, como que el usuario intenta acceder  a un dato que no existe o intenta
+    acceder a un dato por lo cual no tiene permiso, es decir a errores, que tienen un status code de la
+    clase de los 400, ahi vamos a usar httpException para poder hacer que nuestras path operation esten
+    mas completas
+
+
 '''
