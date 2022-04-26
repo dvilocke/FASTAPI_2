@@ -81,5 +81,53 @@ ya que nos sirven para evitar duplicidad, pero en este caso en particular no, lo
     a como se entra datos a traves de path parameters, query parameters y request body
 
     --como hacer para que tu API pueda resivir datos del frontend y particularmente de los formularios--
+        -para tarbajar con formularios, necesitamos una libreria extra
+        pip install python-multipart
+
+    Nota: recodar que response_model = es la respuesta que le vamos a dar al usuario, la funcion path operation
+    function debe ser parecida al nombre que nosotros ponemos en el path
+
+
+    @app.post(
+    path= '/login/',
+    response_model = LoginOut,
+    status_code= status.HTTP_200_OK
+    )
+    def login(username : str = Form):
+        pass
+
+    Form que se tiene que importar de FastApi nos dice para indicar que un parametro dentro de una path
+    operation function viene de un formulario
+
+    Nota: siempre leer los errores del final hasta el principio
+
+    Importante, como es el ingreso de de fuente de datos
+    ya aprendiste como ingresar datos a tu API, mediante
+    1. --> path parameter
+    2 ---> query parameter
+    3 ---> request body
+    4--> formularios
+
+    existen mas fuentes de datos exoticos que podemos explorar para cuando te sean utiles
+
+    5. -----> Cookies
+    6. ---> Header Parameters
+
+                        -------- Definiciones --------
+
+    recordar que un Header es simplemente una parte de una petición o respuesta HTTP que contiene
+    datos sobre tal cosa, es decir, sobre tal petición y respuesta por ejemplo quien la hizo, en que
+    fecha se hizo, en que formato viene, en clase anterior por ejemplo en la documentación interactiva
+    vimos una, vimos el header que nos dice a nosotros en que formato esta la respuesta, vemos que normalmente
+    cuando estamos trabajando con una API el formato es apliccation/json pero vimos tambien que hay
+    otro aplication/x-www-form... que signifca que el formato para la entrada de datos es de formulario, asi como
+    existen esos headers, existen otros , esta como por ejemplo el user agent, ese es el que nos dice quien
+    esta entrando a nuestra web y quien esta usando nuestra APPI
+
+    Una cookie es simplemente, una pieza de codigo muy pequeña que un servidor mete en tu computadora, cuando
+    estas  nevagando en la web, es decir, cada vez que entras a una web que esta trabajando con cookies, ese
+    sitio web esta incrustando codigo en tu computadora para poder almacenar una cierta cantidad de datos
+    que van hacer utiles despues para la navegación, por ejemplo, para loguearte en el sitio web, sin volver a poner
+    la contraseña otra vez
 
 '''

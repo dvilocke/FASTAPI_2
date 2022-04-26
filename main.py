@@ -4,7 +4,7 @@ from enum import Enum
 
 from pydantic import BaseModel, Field
 
-from fastapi import FastAPI, Body
+from fastapi import FastAPI, Body, Form
 from fastapi import  status
 
 
@@ -47,6 +47,10 @@ class Person(PersonBase):
 class PersonOut(PersonBase):
     pass
 
+class LoginOut(BaseModel):
+    #Field() campo del modelo
+    username : str = Field(default=..., max_length = 20, example = 'miguel2021', description='esto sirve')
+    message: str = Field(default='Login Succesfully')
 
 @app.get(path='/', status_code=status.HTTP_200_OK)
 def home():
@@ -59,6 +63,14 @@ def create_person(
         person : Person = Body(...)
 ):
     return person
+
+@app.post(
+    path= '/login/',
+    response_model = LoginOut,
+    status_code= status.HTTP_200_OK
+)
+def login(username : str = Form(...), password : str = Form(...)):
+    return LoginOut(username = username)
 
 
 
