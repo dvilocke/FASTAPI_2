@@ -258,4 +258,17 @@ mejor mantener el código que modificarlo desde cero salvo rara excepciones
 
 no quiere decir que el codigo que hizo la otra persona esta mal, vale mas la pena pararse y leer el codigo, entenderlo
 y mantenerlo que cambiarlo desde cero
+
+simplemente es agregar
+
+deprecate como un atributo de la path operation decorate
+decorate = True
+
+
+@app.post(
+    path= '/login/',
+    response_model = LoginOut,
+    status_code= status.HTTP_200_OK,
+    deprecate = True
+)
 '''
