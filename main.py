@@ -62,7 +62,7 @@ def home():
 
     }
 
-@app.post(path='/person/new/', response_model=PersonOut, status_code=status.HTTP_201_CREATED)
+@app.post(path='/person/new/', response_model=PersonOut, status_code=status.HTTP_201_CREATED, tags = ['Persons'])
 def create_person(
         person : Person = Body(...)
 ):
@@ -126,7 +126,8 @@ persons = [
     1,2,3,4,5
 ]
 @app.get(
-    path = '/person/detail/{person_id}'
+    path = '/person/detail/{person_id}',
+    tags = ['Persons']
 )
 def show_person(
         person_id : int =  Path(

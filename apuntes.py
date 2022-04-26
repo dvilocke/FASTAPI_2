@@ -187,5 +187,20 @@ Video 10 -> HTTPException
     clase de los 400, ahi vamos a usar httpException para poder hacer que nuestras path operation esten
     mas completas
 
+------------------------------- Video 11 -> comenzando a ordenar nuestra documentación: etiquetas-----------------
+etiquetas : nos van a permitir dar un orden a la documentación interactiva
+nos vamos a ir a cada uno de las path operations que traten  como persona y las voy a clasificar, es decir,
+les voy a poner etiquetas, mediante un nuevo parametro del path operation decorater
+
+@app.post(path='/person/new/', response_model=PersonOut, status_code=status.HTTP_201_CREATED, tags = ['Persons'])
+
+como se puede observar agrego un nuevo parametro llamado tags que recibe una lista y el nombre de la etiqueta
+en este caso le puse Persons, ahora me voy a ir a clasificar todos los endpoint que tengan que ver con
+persons y agregar ese mismo parametro
+
+
+---- Nombre y descripcioón de una path operation
+el docstring es la documentación de las funciones, todo esto viene desde base
+el docstring permite documentar las funciones, es una buena practica con python
 
 '''
