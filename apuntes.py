@@ -136,4 +136,43 @@ ya que nos sirven para evitar duplicidad, pero en este caso en particular no, lo
     user_agent = nos dice quien esta entrando a nuestra web
     el funcionamiento de las cookies a veces capturan la informacion de navegación que tienes para poder
     darle datos al creador del sito web que te la ha puesto en tu computadora
+
+-- clase 8:
+
+        Tipos de entradas de datos en FastAPI:
+
+    Path Parameters -> URL y obligatorios
+    Query Parameters -> URL y opcionales
+    Request Body -> JSON
+    Formularios -> Campos en el frontend
+    Headers -> Cabeceras HTTP que pueden ser de cliente a servidor y viceversa
+    Cookies -> Almacenan información
+    Files -> Archivos como imágenes, audio, vídeo, etc.
+    Para manejar archivos con FastAPI necesitamos de las clases ‘File’ y ‘Upload File’.
+
+    Upload file tiene 3 parámetros:
+
+    Filename -> Nombre del archivo
+    Content_Type -> Tipo de archivo
+    File -> El archivo en sí mismo
+
+    FastApi utiliza dos clases para trabajar con archivo
+
+    @app.post(
+    path = '/post-image/'
+    )
+    def post_image(
+        image : UploadFile = File()
+    ):
+        pass
+
+    UploadFile -> una para definir el tipo de la variable o del parametro
+    File () -> y otra para definir el valor que va a contener esa variable o parametro
+
+    viendo la documentación en la cabecera
+    multipart/form-data, lo que quiere decir esto es que estamos trabajando con archivos
+
+    Nota: si yo divido la cantidad en bytes de un archivo en 1024 eso me va a dar la cantidad
+    en kb
+
 '''
