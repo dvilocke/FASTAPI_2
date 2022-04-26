@@ -203,4 +203,19 @@ persons y agregar ese mismo parametro
 el docstring es la documentación de las funciones, todo esto viene desde base
 el docstring permite documentar las funciones, es una buena practica con python
 
+prototipo recomendado por el profesor
+
+    - Titulo
+    - Descripcion
+    - Parametros
+    - Resultado
+
+summary = 'Create Person in the app'
+summary permite colocarle un titulo personalizado a las funciones, por default swager Ui le coloca
+el nombre que le damos a las funciones, pero eso se puede cambiar con esto
+
+
+@app.post(path='/person/new/', response_model=PersonOut, status_code=status.HTTP_201_CREATED, tags = ['Persons'], summary = 'Create Person in the app')
+
+
 '''

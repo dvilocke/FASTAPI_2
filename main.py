@@ -62,10 +62,19 @@ def home():
 
     }
 
-@app.post(path='/person/new/', response_model=PersonOut, status_code=status.HTTP_201_CREATED, tags = ['Persons'])
-def create_person(
-        person : Person = Body(...)
-):
+@app.post(path='/person/new/', response_model=PersonOut, status_code=status.HTTP_201_CREATED, tags = ['Persons'], summary = 'Create Person in the app')
+def create_person(person : Person = Body(...)):
+    """
+    create Person
+
+    This path operation crate a person in the app and save the information in the database
+
+    Parameters:
+    - Request body parameter:
+        - **person : Person** -> A Person model with first name, last name, age, hair color and marital status
+
+    returns a person model with first name, last name, age, hair color and marital status
+    """
     return person
 
 '''la clase LoginOut se instancia, se llena el modelo, al tener el modelo listo,
