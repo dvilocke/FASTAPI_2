@@ -115,6 +115,9 @@ ya que nos sirven para evitar duplicidad, pero en este caso en particular no, lo
 
                         -------- Definiciones --------
 
+    Una parte de una petición o respuesta HTTP que contiene datos sobre la petición o la respuesta, como el
+    formato, quien la hizo, el contenido, etc…
+
     recordar que un Header es simplemente una parte de una petición o respuesta HTTP que contiene
     datos sobre tal cosa, es decir, sobre tal petición y respuesta por ejemplo quien la hizo, en que
     fecha se hizo, en que formato viene, en clase anterior por ejemplo en la documentación interactiva
@@ -130,4 +133,7 @@ ya que nos sirven para evitar duplicidad, pero en este caso en particular no, lo
     que van hacer utiles despues para la navegación, por ejemplo, para loguearte en el sitio web, sin volver a poner
     la contraseña otra vez
 
+    user_agent = nos dice quien esta entrando a nuestra web
+    el funcionamiento de las cookies a veces capturan la informacion de navegación que tienes para poder
+    darle datos al creador del sito web que te la ha puesto en tu computadora
 '''

@@ -3,8 +3,9 @@ from typing import Optional
 from enum import Enum
 
 from pydantic import BaseModel, Field
+from pydantic import EmailStr
 
-from fastapi import FastAPI, Body, Form
+from fastapi import FastAPI, Body, Form, Header, Cookie
 from fastapi import  status
 
 
@@ -64,6 +65,9 @@ def create_person(
 ):
     return person
 
+'''la clase LoginOut se instancia, se llena el modelo, al tener el modelo listo,
+podemos convertir ese modelo a un diccionario, y fastApi lo devuelve por nosotros
+en formato JSON'''
 @app.post(
     path= '/login/',
     response_model = LoginOut,
@@ -71,6 +75,34 @@ def create_person(
 )
 def login(username : str = Form(...), password : str = Form(...)):
     return LoginOut(username = username)
+
+
+# cookies and Headers Parameters
+
+@app.post(
+    path = '/contact',
+    status_code= status.HTTP_200_OK
+)
+def contact(
+        first_name : str = Form(
+            ...,
+            max_length = 20,
+            min_length = 1
+        ),
+        last_name: str = Form(
+            ...,
+            max_length=20,
+            min_length=1
+        ),
+        email : EmailStr = Form(...),
+        message : str = Form(
+            ...,
+            min_length = 20
+        ),
+        user_agent : Optional[str] = Header(default=None),
+        ads : Optional[str] = Cookie(default=None)
+):
+    return user_agent
 
 
 
